@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog Lập Trình - Xây dựng REST API với Java & JavaScript</title>
+    <meta name="description"
+        content="Hướng dẫn cách xây dựng REST API với Java Spring Boot và Node.js Express — hai công nghệ phổ biến trong phát triển backend hiện đại." />
+    <meta name="keywords" content="Java, JavaScript, REST API, Spring Boot, Express, backend, lập trình web" />
+
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="service-details-page">
+    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <div class="header-container d-flex flex-column align-items-start">
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house navicon"></i>Trang chủ</a></li>
+                    <li><a href="#blog" class="active"><i class="bi bi-journal-text navicon"></i> Blog</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links text-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-title dark-background">
+            <div class="container d-lg-flex justify-content-between align-items-center">
+                <h1 class="mb-2 mb-lg-0">Xây dựng REST API với Java & JavaScript</h1>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="#testimonials">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <section id="blog-details" class="service-details section">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <div class="service-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": { "delay": 5000 },
+                    "slidesPerView": 1,
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
+                  }
+                </script>
+                            <div class="swiper-wrapper align-items-center">
+                                <div class="slide-item">
+                                    <img src="assets/img/blog/spring-boot.jpg" alt="Spring Boot" class="slide-image" />
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <div class="content mt-5">
+                            <h3>Tạo REST API hiện đại với Spring Boot và Express.js</h3>
+                            <p>
+                                Trong phát triển web ngày nay, <strong>REST API</strong> đóng vai trò cầu nối giữa
+                                backend và frontend.
+                                Hai công nghệ được sử dụng phổ biến nhất để xây dựng API là <strong>Java Spring
+                                    Boot</strong> và <strong>Node.js Express</strong>.
+                            </p>
+
+                            <h4>⚙️ Spring Boot – Giải pháp toàn diện cho backend Java</h4>
+                            <p>
+                                Spring Boot giúp lập trình viên Java tạo API một cách nhanh chóng, có sẵn cơ chế bảo
+                                mật, ORM, và tích hợp dễ dàng với cơ sở dữ liệu.
+                                Dưới đây là ví dụ đơn giản về REST API với Spring Boot:
+                            </p>
+
+                            <pre><code class="language-java">
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+  @GetMapping
+  public List&lt;User&gt; getUsers() {
+    return userService.getAllUsers();
+  }
+}
+</code></pre>
+
+                            <h4>🚀 Express.js – Nhanh gọn và linh hoạt</h4>
+                            <p>
+                                Với JavaScript, Express.js mang lại cách tiếp cận nhẹ, dễ triển khai và được dùng rộng
+                                rãi cho các ứng dụng web và mobile backend.
+                            </p>
+
+                            <pre><code class="language-js">
+const express = require("express");
+const app = express();
+
+app.get("/api/users", (req, res) => {
+  res.json([{ name: "Kiên" }, { name: "Nam" }]);
+});
+
+app.listen(3000, () => console.log("Server running on port 3000"));
+</code></pre>
+
+                            <div class="features mt-4">
+                                <div class="row gy-4">
+                                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="feature-box d-flex align-items-center">
+                                            <i class="bi bi-check-circle"></i>
+                                            <h4>Spring Boot: Bảo mật, mạnh mẽ, hỗ trợ doanh nghiệp</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="feature-box d-flex align-items-center">
+                                            <i class="bi bi-check-circle"></i>
+                                            <h4>Express.js: Gọn nhẹ, dễ học, linh hoạt</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="mt-5">💡 Kết hợp cả hai công nghệ?</h4>
+                            <p>
+                                Nhiều doanh nghiệp chọn <strong>Java</strong> cho hệ thống chính nhờ độ ổn định,
+                                và <strong>Node.js</strong> cho microservice nhỏ, giúp tối ưu tài nguyên và tốc độ phát
+                                triển.
+                                Khi hiểu cả hai, bạn có thể tự tin trở thành một <em>Fullstack Developer</em> thực thụ.
+                            </p>
+
+                            <p>
+                                Dù sử dụng công nghệ nào, điều quan trọng nhất vẫn là hiểu rõ nguyên lý RESTful
+                                và cách tổ chức API sao cho dễ bảo trì và mở rộng về sau.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="service-info">
+                            <h4>Thông tin Blog</h4>
+                            <div class="info-item">
+                                <i class="bi bi-calendar"></i>
+                                <h5>Ngày đăng</h5>
+                                <p>12 tháng 10, 2025</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-person"></i>
+                                <h5>Tác giả</h5>
+                                <p>Nguyễn Nam Kiên</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-tag"></i>
+                                <h5>Chủ đề</h5>
+                                <p>Java, Node.js, REST API, Backend</p>
+                            </div>
+                        </div>
+
+                        <div class="related-services mt-5">
+                            <h4>Bài viết liên quan</h4>
+                            <div class="service-item">
+                                <i class="bi bi-journal-code"></i>
+                                <h5><a href="blog1.html">Java & JavaScript: Hai ngôn ngữ, hai thế giới</a></h5>
+                                <p>Hiểu rõ sự khác biệt và vai trò của hai ngôn ngữ phổ biến nhất hiện nay.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer position-relative">
+        <div class="container text-center">
+            <p>© 2025 <strong class="sitename">Nguyễn Nam Kiên Blog</strong> — Chia sẻ kiến thức lập trình.</p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <div id="preloader"></div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

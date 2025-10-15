@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>So sánh hiệu năng giữa Java và Node.js | Blog Lập Trình</title>
+  <meta name="description"
+    content="Phân tích chi tiết cách Java và Node.js xử lý đồng thời, tối ưu hiệu suất và khả năng mở rộng trong môi trường backend thực tế." />
+  <meta name="keywords"
+    content="Java, Node.js, hiệu năng, backend, lập trình web, JavaScript, đa luồng, async, concurrency" />
+
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <link href="assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="service-details-page">
+  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="header-container d-flex flex-column align-items-start">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house navicon"></i>Trang chủ</a></li>
+          <li><a href="#blog" class="active"><i class="bi bi-journal-text navicon"></i> Blog</a></li>
+        </ul>
+      </nav>
+
+      <div class="social-links text-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">So sánh hiệu năng giữa Java và Node.js</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li class="current">Blog</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section id="blog-details" class="service-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="service-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": { "delay": 5000 },
+                    "slidesPerView": 1,
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
+                  }
+                </script>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="content mt-5">
+              <h3>Java vs Node.js — Cái nào nhanh hơn trong thực tế?</h3>
+              <p>
+                Khi nói đến hiệu năng của ứng dụng backend, <strong>Java</strong> và
+                <strong>Node.js</strong> thường được đặt lên bàn cân. Cả hai đều mạnh mẽ, nhưng chúng tiếp cận
+                vấn đề xử lý đồng thời theo những cách hoàn toàn khác nhau.
+              </p>
+
+              <h4>🚀 Mô hình xử lý đồng thời</h4>
+              <p>
+                <strong>Java</strong> sử dụng mô hình <em>đa luồng (multi-threaded)</em>, mỗi yêu cầu có thể được
+                xử lý bởi một luồng riêng biệt. JVM quản lý tài nguyên và giúp tối ưu luồng, đặc biệt hiệu quả
+                khi làm việc với CPU đa nhân.
+              </p>
+              <p>
+                Trong khi đó, <strong>Node.js</strong> hoạt động trên mô hình <em>event-driven, non-blocking I/O</em>.
+                Tức là chỉ có một luồng chính, nhưng có thể xử lý hàng nghìn yêu cầu đồng thời nhờ cơ chế hàng đợi sự
+                kiện
+                (Event Loop) và callback.
+              </p>
+
+              <h4>⚙️ Hiệu suất thực tế</h4>
+              <ul>
+                <li><strong>Java</strong> thường có lợi thế trong các tác vụ tính toán nặng (CPU-bound).</li>
+                <li><strong>Node.js</strong> lại vượt trội trong các tác vụ I/O như đọc ghi file, kết nối API hoặc truy
+                  vấn cơ sở dữ liệu.</li>
+              </ul>
+
+              <h4>📊 Kết quả benchmark (giả lập)</h4>
+              <p>Dưới đây là ví dụ kết quả trung bình của một thử nghiệm xử lý 10.000 yêu cầu:</p>
+              <table class="table table-bordered text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th>Thông số</th>
+                    <th>Java (Spring Boot)</th>
+                    <th>Node.js (Express)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Thời gian phản hồi trung bình</td>
+                    <td>120 ms</td>
+                    <td>90 ms</td>
+                  </tr>
+                  <tr>
+                    <td>Số request/giây</td>
+                    <td>8.000</td>
+                    <td>9.500</td>
+                  </tr>
+                  <tr>
+                    <td>Sử dụng CPU</td>
+                    <td>60%</td>
+                    <td>55%</td>
+                  </tr>
+                  <tr>
+                    <td>Sử dụng bộ nhớ</td>
+                    <td>450 MB</td>
+                    <td>300 MB</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>
+                Kết quả cho thấy Node.js xử lý nhanh hơn trong các tác vụ I/O nhẹ, nhưng Java lại ổn định hơn
+                trong các ứng dụng phức tạp và lâu dài.
+              </p>
+
+              <h4>💡 Khi nào nên chọn Java, khi nào nên chọn Node.js?</h4>
+              <ul>
+                <li><strong>Chọn Java</strong> nếu bạn xây dựng hệ thống lớn, yêu cầu ổn định và bảo mật cao — như ngân
+                  hàng, doanh nghiệp.</li>
+                <li><strong>Chọn Node.js</strong> nếu bạn cần tốc độ phát triển nhanh, hệ thống realtime (chat,
+                  streaming), hoặc microservices.</li>
+              </ul>
+              <p class="mt-3">
+                Dù bạn chọn nền tảng nào, hãy chú ý tối ưu kiến trúc, cache dữ liệu, và phân tích hiệu năng định kỳ.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="service-info">
+              <h4>Thông tin Blog</h4>
+              <div class="info-item">
+                <i class="bi bi-calendar"></i>
+                <h5>Ngày đăng</h5>
+                <p>11 tháng 10, 2025</p>
+              </div>
+              <div class="info-item">
+                <i class="bi bi-person"></i>
+                <h5>Tác giả</h5>
+                <p>Nguyễn Nam Kiên</p>
+              </div>
+              <div class="info-item">
+                <i class="bi bi-tag"></i>
+                <h5>Chủ đề</h5>
+                <p>Hiệu năng, Java, Node.js, Backend</p>
+              </div>
+            </div>
+
+            <div class="related-services mt-5">
+              <h4>Bài viết liên quan</h4>
+              <div class="service-item">
+                <i class="bi bi-journal-code"></i>
+                <h5><a href="blog1.html">Java & JavaScript: Hai ngôn ngữ, hai thế giới</a></h5>
+                <p>Hiểu rõ sự khác biệt và vai trò của hai ngôn ngữ phổ biến nhất hiện nay.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container text-center">
+      <p>© 2025 <strong class="sitename">Nguyễn Nam Kiên Blog</strong> — Chia sẻ kiến thức lập trình.</p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+/* Blog Layout Styles */
+.blog-page {
+  font-family: "Poppins", sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+/* Header */
+.blog-header {
+  background: #111;
+  padding: 20px;
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+}
+
+.blog-header-toggle {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.blog-navmenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-navmenu a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+.blog-navmenu a.active,
+.blog-navmenu a:hover {
+  color: #fff;
+}
+
+/* Title Section */
+.blog-title {
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  color: #fff;
+  padding: 60px 0;
+  margin-left: 240px;
+}
+
+.blog-breadcrumbs ol {
+  display: flex;
+  gap: 10px;
+}
+
+.blog-breadcrumbs a {
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Content Area */
+.blog-main {
+  margin-left: 240px;
+  padding: 40px 0;
+}
+
+.blog-content h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.blog-content h4 {
+  margin-top: 30px;
+  color: #0056b3;
+}
+
+.blog-content p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.blog-feature-item i {
+  color: #007bff;
+  margin-right: 10px;
+}
+
+/* Sidebar */
+.blog-sidebar {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.blog-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.blog-info-item i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #007bff;
+}
+
+/* Related Posts */
+.blog-related {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.blog-related-item {
+  margin-bottom: 15px;
+}
+
+.blog-related-item a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.blog-related-item a:hover {
+  color: #007bff;
+}
+
+/* Footer */
+.blog-footer {
+  margin-left: 240px;
+  background: #111;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.blog-scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: background 0.3s;
+}
+
+.blog-scroll-top:hover {
+  background: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .blog-header {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .blog-title,
+  .blog-main,
+  .blog-footer {
+    margin-left: 0;
+  }
+}

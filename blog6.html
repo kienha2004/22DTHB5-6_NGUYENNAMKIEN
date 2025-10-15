@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog Lập Trình - Scope & Closure trong JavaScript</title>
+    <meta name="description"
+        content="Tìm hiểu về phạm vi (scope) và closure trong JavaScript – hiểu cách biến được lưu trữ và sử dụng để viết code hiệu quả hơn." />
+    <meta name="keywords" content="JavaScript, scope, closure, biến, hàm, tư duy lập trình" />
+
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="service-details-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <div class="header-container d-flex flex-column align-items-start">
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house navicon"></i>Trang chủ</a></li>
+                    <li><a href="#blog" class="active"><i class="bi bi-journal-text navicon"></i> Blog</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links text-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <main class="main">
+        <div class="page-title dark-background">
+            <div class="container d-lg-flex justify-content-between align-items-center">
+                <h1 class="mb-2 mb-lg-0">Hiểu sâu về Scope và Closure trong JavaScript</h1>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="#testimonials">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ======= Blog Details Section ======= -->
+        <section id="blog-details" class="service-details section">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <!-- Nội dung chính -->
+                    <div class="col-lg-8">
+                        <div class="service-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": { "delay": 5000 },
+                    "slidesPerView": 1,
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
+                  }
+                </script>
+                            <div class="swiper-wrapper align-items-center">
+                                <div class="slide-item">
+                                    <img src="assets/img/blog/js-scope.png" alt="Js Scope" class="slide-image" />
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- Nội dung bài blog -->
+                        <div class="content mt-5">
+                            <h3>🔍 Scope là gì?</h3>
+                            <p>
+                                <strong>Scope</strong> (phạm vi) xác định nơi mà biến hoặc hàm có thể được truy cập
+                                trong code.
+                                Trong JavaScript có 3 loại scope chính:
+                            </p>
+                            <ul>
+                                <li><strong>Global Scope:</strong> biến có thể được truy cập ở mọi nơi.</li>
+                                <li><strong>Function Scope:</strong> biến chỉ tồn tại trong hàm.</li>
+                                <li><strong>Block Scope:</strong> (ES6 trở lên) với <code>let</code> và
+                                    <code>const</code>, biến chỉ tồn tại trong cặp ngoặc <code>{}</code>.</li>
+                            </ul>
+
+                            <pre><code class="language-javascript">
+let x = 10; // Global scope
+
+function test() {
+  let y = 20; // Function scope
+  if (true) {
+    let z = 30; // Block scope
+    console.log(x + y + z);
+  }
+}
+test(); // ✅ 60
+console.log(z); // ❌ Lỗi: z không tồn tại ngoài block
+                </code></pre>
+
+                            <h3>🧠 Closure là gì?</h3>
+                            <p>
+                                <strong>Closure</strong> là một hàm “ghi nhớ” phạm vi nơi nó được tạo ra,
+                                ngay cả khi hàm đó được gọi ở nơi khác.
+                            </p>
+
+                            <pre><code class="language-javascript">
+function createCounter() {
+  let count = 0; // biến private
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+                </code></pre>
+
+                            <p>
+                                Trong ví dụ này, biến <code>count</code> vẫn tồn tại trong bộ nhớ vì hàm con
+                                “nhớ” môi trường nơi nó được tạo. Đây chính là sức mạnh của <strong>closure</strong> —
+                                giúp ẩn dữ liệu và tạo ra các biến “private” trong JavaScript.
+                            </p>
+
+                            <h4>💡 Ứng dụng thực tế của Closure</h4>
+                            <ul>
+                                <li>Tạo biến private (ẩn dữ liệu nội bộ trong module hoặc class).</li>
+                                <li>Ghi nhớ trạng thái giữa các lần gọi hàm.</li>
+                                <li>Áp dụng trong debounce, throttling, event handler, và async logic.</li>
+                            </ul>
+
+                            <pre><code class="language-javascript">
+// Ứng dụng closure: debounce
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+                </code></pre>
+
+                            <p>
+                                Closure không chỉ là lý thuyết mà là “vũ khí tư duy” cực mạnh giúp bạn hiểu sâu cách
+                                JavaScript vận hành phía dưới.
+                            </p>
+
+                            <h4>🚀 Tổng kết</h4>
+                            <ul>
+                                <li><strong>Scope:</strong> quy định nơi biến có thể được truy cập.</li>
+                                <li><strong>Closure:</strong> giúp hàm nhớ được môi trường khi nó được tạo.</li>
+                                <li>Cả hai là nền tảng tư duy quan trọng để hiểu React Hooks, Event Handler, và bất kỳ
+                                    logic JS phức tạp nào.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4">
+                        <div class="service-info">
+                            <h4>Thông tin Blog</h4>
+                            <div class="info-item">
+                                <i class="bi bi-calendar"></i>
+                                <h5>Ngày đăng</h5>
+                                <p>14 tháng 10, 2025</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-person"></i>
+                                <h5>Tác giả</h5>
+                                <p>Nguyễn Nam Kiên</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-tag"></i>
+                                <h5>Chủ đề</h5>
+                                <p>JavaScript, Closure, Scope, React Hooks</p>
+                            </div>
+                        </div>
+
+                        <div class="related-services mt-5">
+                            <h4>Bài viết liên quan</h4>
+                            <div class="service-item">
+                                <i class="bi bi-code-slash"></i>
+                                <h5><a href="blog7.html">Java và JavaScript: Giống và Khác</a></h5>
+                                <p>
+                                    Giải thích sự khác biệt giữa Java và JavaScript.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Blog Details Section -->
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer position-relative">
+        <div class="container text-center">
+            <p>© 2025 <strong class="sitename">Nguyễn Nam Kiên Blog</strong> — Chia sẻ kiến thức lập trình.</p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <div id="preloader"></div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

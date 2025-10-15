@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog Lập Trình - Kết hợp Java Backend & React Frontend</title>
+    <meta name="description"
+        content="Hướng dẫn cách kết hợp Java Spring Boot với React.js để xây dựng ứng dụng web hiện đại, tối ưu hiệu suất và dễ mở rộng." />
+    <meta name="keywords" content="Java, Spring Boot, React, frontend, backend, fullstack, REST API, web development" />
+
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="service-details-page">
+    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <div class="header-container d-flex flex-column align-items-start">
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house navicon"></i>Trang chủ</a></li>
+                    <li><a href="#blog" class="active"><i class="bi bi-journal-text navicon"></i> Blog</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links text-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-title dark-background">
+            <div class="container d-lg-flex justify-content-between align-items-center">
+                <h1 class="mb-2 mb-lg-0">Kết hợp Java Backend & React Frontend</h1>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="#testimonials">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <section id="blog-details" class="service-details section">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <div class="service-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": { "delay": 5000 },
+                    "slidesPerView": 1,
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
+                  }
+                </script>
+                            <div class="swiper-wrapper align-items-center">
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <div class="content mt-5">
+                            <h3>Kết hợp sức mạnh giữa Java & React trong phát triển web hiện đại</h3>
+                            <p>
+                                Trong thế giới phát triển web hiện nay, việc tách biệt giữa backend và frontend giúp
+                                tăng hiệu suất,
+                                khả năng mở rộng và bảo trì dễ dàng hơn. Một trong những cặp đôi mạnh mẽ nhất cho mô
+                                hình này chính là
+                                <strong>Java Spring Boot</strong> ở backend và <strong>React.js</strong> ở frontend.
+                            </p>
+
+                            <h4>⚙️ Spring Boot – Trái tim của backend</h4>
+                            <p>
+                                Spring Boot giúp lập trình viên Java dễ dàng tạo REST API với cấu trúc rõ ràng, bảo mật
+                                cao, và hỗ trợ
+                                nhiều tính năng như xác thực JWT, ORM với Hibernate, và cấu hình linh hoạt.
+                            </p>
+
+                            <h4>💻 React – Giao diện động và linh hoạt</h4>
+                            <p>
+                                React cho phép xây dựng giao diện người dùng nhanh, mượt và có khả năng cập nhật theo
+                                trạng thái ứng dụng.
+                                Khi kết hợp với API từ Spring Boot, React giúp mang lại trải nghiệm hiện đại như ứng
+                                dụng native.
+                            </p>
+
+                            <div class="features mt-4">
+                                <div class="row gy-4">
+                                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="feature-box d-flex align-items-center">
+                                            <i class="bi bi-check-circle"></i>
+                                            <h4>RESTful API với Spring Boot</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="feature-box d-flex align-items-center">
+                                            <i class="bi bi-check-circle"></i>
+                                            <h4>Frontend hiện đại với React Hooks</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="mt-5">🚀 Quy trình tích hợp cơ bản</h4>
+                            <p>
+                                1️⃣ Tạo backend bằng Spring Boot với các endpoint REST. <br />
+                                2️⃣ Sử dụng React để fetch dữ liệu từ các endpoint này. <br />
+                                3️⃣ Sử dụng CORS để cho phép kết nối giữa hai server khác nhau. <br />
+                                4️⃣ Triển khai cả hai ứng dụng (Spring + React) lên cloud hoặc server riêng.
+                            </p>
+
+                            <p>
+                                Khi Java và JavaScript được kết hợp đúng cách, bạn sẽ có một hệ thống mạnh mẽ, linh hoạt
+                                và thân thiện với người dùng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="service-info">
+                            <h4>Thông tin Blog</h4>
+                            <div class="info-item">
+                                <i class="bi bi-calendar"></i>
+                                <h5>Ngày đăng</h5>
+                                <p>12 tháng 10, 2025</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-person"></i>
+                                <h5>Tác giả</h5>
+                                <p>Nguyễn Nam Kiên</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-tag"></i>
+                                <h5>Chủ đề</h5>
+                                <p>Java, React, Fullstack, REST API</p>
+                            </div>
+                        </div>
+
+                        <div class="related-services mt-5">
+                            <h4>Bài viết liên quan</h4>
+                            <div class="service-item">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <h5><a href="blog4.html">Tư duy lập trình hướng đối tượng trong Java</a></h5>
+                                <p>
+                                    Tìm hiểu tư duy lập trình hướng đối tượng (OOP) trong Java
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer position-relative">
+        <div class="container text-center">
+            <p>© 2025 <strong class="sitename">Nguyễn Nam Kiên Blog</strong> — Chia sẻ kiến thức lập trình.</p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <div id="preloader"></div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

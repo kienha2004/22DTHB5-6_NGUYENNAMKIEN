@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog Lập Trình - Tư duy lập trình hướng đối tượng trong Java</title>
+    <meta name="description"
+        content="Tìm hiểu tư duy lập trình hướng đối tượng (OOP) trong Java và cách áp dụng trong dự án thực tế." />
+    <meta name="keywords"
+        content="Java, OOP, hướng đối tượng, class, kế thừa, đa hình, encapsulation, abstraction, lập trình Java" />
+
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="service-details-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <div class="header-container d-flex flex-column align-items-start">
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house navicon"></i>Trang chủ</a></li>
+                    <li><a href="#blog" class="active"><i class="bi bi-journal-text navicon"></i> Blog</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links text-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <main class="main">
+        <div class="page-title dark-background">
+            <div class="container d-lg-flex justify-content-between align-items-center">
+                <h1 class="mb-2 mb-lg-0">Tư duy lập trình hướng đối tượng trong Java</h1>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="#testimonials">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ======= Blog Details Section ======= -->
+        <section id="blog-details" class="service-details section">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <!-- Nội dung chính -->
+                    <div class="col-lg-8">
+                        <div class="service-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": { "delay": 5000 },
+                    "slidesPerView": 1,
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
+                  }
+                </script>
+                            <div class="swiper-wrapper align-items-center">
+                                <div class="slide-item">
+                                    <img src="assets/img/blog/huong-doi-tuong.jpg" alt="java" class="slide-image" />
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- Nội dung bài blog -->
+                        <div class="content mt-5">
+                            <h3>Tư duy lập trình hướng đối tượng trong Java & cách áp dụng thực tế</h3>
+                            <p>
+                                Khi học lập trình Java, khái niệm <strong>lập trình hướng đối tượng (OOP)</strong> là
+                                nền tảng quan trọng nhất.
+                                OOP không chỉ là cú pháp – nó là một cách tư duy, giúp bạn thiết kế phần mềm dễ bảo trì,
+                                mở rộng và tái sử dụng.
+                            </p>
+
+                            <h4>💡 OOP là gì?</h4>
+                            <p>
+                                Lập trình hướng đối tượng là phương pháp mô phỏng thế giới thực trong lập trình.
+                                Mọi thứ được xem như một “đối tượng” có <em>thuộc tính</em> (dữ liệu) và <em>hành
+                                    vi</em> (hàm, phương thức).
+                                Nhờ vậy, lập trình viên có thể chia nhỏ hệ thống phức tạp thành các phần dễ quản lý hơn.
+                            </p>
+
+                            <h4>🧱 4 trụ cột của OOP trong Java</h4>
+                            <ul>
+                                <li><strong>Encapsulation (Đóng gói):</strong> Giúp bảo vệ dữ liệu bằng cách ẩn thông
+                                    tin bên trong class.</li>
+                                <li><strong>Inheritance (Kế thừa):</strong> Giúp tái sử dụng mã nguồn bằng cách mở rộng
+                                    từ class cha.</li>
+                                <li><strong>Polymorphism (Đa hình):</strong> Cho phép các class khác nhau cùng định
+                                    nghĩa hành vi theo cách riêng.</li>
+                                <li><strong>Abstraction (Trừu tượng hóa):</strong> Chỉ tập trung vào “cái cần làm” mà bỏ
+                                    qua “cách thực hiện”.</li>
+                            </ul>
+
+                            <h4>⚙️ Ví dụ thực tế</h4>
+                            <p>
+                                Giả sử bạn đang viết ứng dụng quản lý nhân sự.
+                                Bạn có thể tạo class <code>Employee</code> làm class cha, sau đó tạo các class con như
+                                <code>Manager</code> hay <code>Intern</code>.
+                                Mỗi loại nhân viên có thể có cách tính lương khác nhau – đây chính là <em>đa hình</em>
+                                trong OOP.
+                            </p>
+
+                            <pre><code class="language-java">
+abstract class Employee {
+  String name;
+  abstract double calculateSalary();
+}
+
+class Manager extends Employee {
+  double bonus;
+  @Override
+  double calculateSalary() {
+    return 2000 + bonus;
+  }
+}
+
+class Intern extends Employee {
+  @Override
+  double calculateSalary() {
+    return 500;
+  }
+}
+                </code></pre>
+
+                            <h4>🚀 Ứng dụng trong dự án thực tế</h4>
+                            <p>
+                                Khi bạn làm việc với <strong>Spring Boot</strong>, các nguyên tắc OOP xuất hiện khắp
+                                nơi:
+                                từ việc tạo model, service, controller cho đến cách xử lý dependency bằng interface.
+                                Việc hiểu sâu OOP giúp bạn viết code rõ ràng, dễ mở rộng và giảm lỗi khi dự án lớn dần.
+                            </p>
+
+                            <h4>🎯 Lời khuyên cho người học Java</h4>
+                            <ul>
+                                <li>Bắt đầu bằng cách viết những class nhỏ và đơn giản.</li>
+                                <li>Hiểu bản chất “vì sao” hơn là chỉ học cú pháp.</li>
+                                <li>Thực hành bằng cách xây ứng dụng nhỏ — ví dụ: quản lý sinh viên, bán hàng, hoặc ghi
+                                    chú cá nhân.</li>
+                            </ul>
+
+                            <p>
+                                Khi bạn nắm vững tư duy OOP, bạn không chỉ viết code Java tốt hơn,
+                                mà còn dễ dàng học thêm các ngôn ngữ khác như C#, Kotlin hay TypeScript.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4">
+                        <div class="service-info">
+                            <h4>Thông tin Blog</h4>
+                            <div class="info-item">
+                                <i class="bi bi-calendar"></i>
+                                <h5>Ngày đăng</h5>
+                                <p>12 tháng 10, 2025</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-person"></i>
+                                <h5>Tác giả</h5>
+                                <p>Nguyễn Nam Kiên</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-tag"></i>
+                                <h5>Chủ đề</h5>
+                                <p>Java, OOP, Lập trình hướng đối tượng</p>
+                            </div>
+                        </div>
+
+                        <div class="related-services mt-5">
+                            <h4>Bài viết liên quan</h4>
+                            <div class="service-item">
+                                <i class="bi bi-code-slash"></i>
+                                <h5><a href="blog1.html">Java & JavaScript: Hai ngôn ngữ, hai thế giới</a></h5>
+                                <p>
+                                    Tìm hiểu sự khác biệt giữa Java và JavaScript – hai ngôn ngữ tưởng giống mà khác xa
+                                    nhau.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Blog Details Section -->
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer position-relative">
+        <div class="container text-center">
+            <p>© 2025 <strong class="sitename">Nguyễn Nam Kiên Blog</strong> — Chia sẻ kiến thức lập trình.</p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <div id="preloader"></div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

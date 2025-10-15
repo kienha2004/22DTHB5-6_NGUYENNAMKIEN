@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog Lập Trình - Asynchronous JavaScript</title>
+    <meta name="description"
+        content="Hiểu rõ bất đồng bộ trong JavaScript qua Callback, Promise và Async/Await — viết code gọn gàng, hiện đại hơn." />
+    <meta name="keywords" content="JavaScript, asynchronous, callback, promise, async await, lập trình web" />
+
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="service-details-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <div class="header-container d-flex flex-column align-items-start">
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house navicon"></i>Trang chủ</a></li>
+                    <li><a href="#blog" class="active"><i class="bi bi-journal-text navicon"></i> Blog</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links text-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <main class="main">
+        <div class="page-title dark-background">
+            <div class="container d-lg-flex justify-content-between align-items-center">
+                <h1 class="mb-2 mb-lg-0">Asynchronous JavaScript – Promise, async/await và callback</h1>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="#testimonials">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ======= Blog Details Section ======= -->
+        <section id="blog-details" class="service-details section">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <!-- Nội dung chính -->
+                    <div class="col-lg-8">
+                        <div class="service-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": { "delay": 5000 },
+                    "slidesPerView": 1,
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
+                  }
+                </script>
+                            <div class="swiper-wrapper align-items-center">
+                                <div class="slide-item">
+                                    <img src="assets/img/blog/js.jpg" alt="Java Script" class="slide-image" />
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- Nội dung bài blog -->
+                        <div class="content mt-5">
+                            <h3>Hiểu rõ bất đồng bộ trong JavaScript</h3>
+                            <p>
+                                JavaScript là ngôn ngữ <strong>đơn luồng (single-threaded)</strong> — nghĩa là chỉ chạy
+                                một tác vụ tại một thời điểm.
+                                Tuy nhiên, trong thực tế, ta vẫn có thể xử lý nhiều công việc “song song” như gọi API,
+                                tải dữ liệu, hay đọc file.
+                                Đó chính là nhờ cơ chế <strong>Asynchronous (bất đồng bộ)</strong>.
+                            </p>
+
+                            <h4>🧩 Callback – nền tảng đầu tiên</h4>
+                            <p>
+                                Callback là cách đầu tiên JavaScript dùng để xử lý tác vụ bất đồng bộ.
+                                Bạn truyền một hàm vào làm đối số, và nó sẽ được gọi khi tác vụ hoàn tất.
+                            </p>
+
+                            <pre><code class="language-javascript">
+// Ví dụ callback
+function getData(callback) {
+  setTimeout(() => {
+    callback("Dữ liệu đã tải xong!");
+  }, 2000);
+}
+
+getData((data) => {
+  console.log(data);
+});
+                </code></pre>
+
+                            <p>
+                                Tuy nhiên, nếu có nhiều tác vụ nối tiếp nhau, bạn sẽ rơi vào <strong>“callback
+                                    hell”</strong> — code lồng nhau khó đọc và khó bảo trì.
+                            </p>
+
+                            <h4>🚀 Promise – cách viết rõ ràng hơn</h4>
+                            <p>
+                                Promise được giới thiệu để xử lý bất đồng bộ một cách sạch hơn.
+                                Thay vì callback, ta dùng <code>.then()</code> và <code>.catch()</code> để xử lý kết
+                                quả.
+                            </p>
+
+                            <pre><code class="language-javascript">
+const getData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Dữ liệu đã tải xong!"), 2000);
+  });
+};
+
+getData()
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
+                </code></pre>
+
+                            <p>
+                                Promise giúp xử lý tuần tự các tác vụ dễ hơn, đặc biệt khi cần kết hợp nhiều lời gọi
+                                API.
+                            </p>
+
+                            <h4>⚙️ Async/Await – cú pháp hiện đại nhất</h4>
+                            <p>
+                                Từ ES2017, JavaScript giới thiệu <strong>async/await</strong> — giúp code bất đồng bộ
+                                trông giống như code đồng bộ, dễ hiểu hơn rất nhiều.
+                            </p>
+
+                            <pre><code class="language-javascript">
+async function fetchData() {
+  try {
+    const data = await getData();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchData();
+                </code></pre>
+
+                            <p>
+                                Với async/await, bạn có thể xử lý nhiều tác vụ nối tiếp hoặc song song mà vẫn dễ đọc, dễ
+                                gỡ lỗi và ngắn gọn hơn.
+                            </p>
+
+                            <h4>🎯 Tổng kết</h4>
+                            <ul>
+                                <li><strong>Callback:</strong> đơn giản nhưng dễ rối khi lồng nhiều.</li>
+                                <li><strong>Promise:</strong> rõ ràng hơn, có thể xử lý chuỗi thao tác dễ dàng.</li>
+                                <li><strong>Async/Await:</strong> cú pháp hiện đại, dễ viết, dễ bảo trì nhất hiện nay.
+                                </li>
+                            </ul>
+
+                            <p>
+                                Khi làm việc với các framework frontend như <strong>React</strong> hay backend như
+                                <strong>Node.js</strong>,
+                                hiểu rõ bất đồng bộ là kỹ năng bắt buộc nếu bạn muốn trở thành lập trình viên chuyên
+                                nghiệp.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4">
+                        <div class="service-info">
+                            <h4>Thông tin Blog</h4>
+                            <div class="info-item">
+                                <i class="bi bi-calendar"></i>
+                                <h5>Ngày đăng</h5>
+                                <p>13 tháng 10, 2025</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-person"></i>
+                                <h5>Tác giả</h5>
+                                <p>Nguyễn Nam Kiên</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-tag"></i>
+                                <h5>Chủ đề</h5>
+                                <p>JavaScript, Bất đồng bộ, Promise, Async/Await</p>
+                            </div>
+                        </div>
+
+                        <div class="related-services mt-5">
+                            <h4>Bài viết liên quan</h4>
+                            <div class="service-item">
+                                <i class="bi bi-braces"></i>
+                                <h5><a href="blog6.html">Hiểu sâu về Scope và Closure trong JavaScript</a></h5>
+                                <p>
+                                    Làm chủ cách JavaScript quản lý biến và hàm để tránh bug khó chịu.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Blog Details Section -->
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer position-relative">
+        <div class="container text-center">
+            <p>© 2025 <strong class="sitename">Nguyễn Nam Kiên Blog</strong> — Chia sẻ kiến thức lập trình.</p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <div id="preloader"></div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
