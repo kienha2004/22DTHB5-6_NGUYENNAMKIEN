@@ -2537,8 +2537,8 @@ section,
 
 .qr-large {
   margin-top: 80px;
-  width: 260px;
-  height: 260px;
+  width: 360px;
+  height: 360px;
   border: 3px solid #ddd;
   border-radius: 10px;
   background: #fff;
@@ -2574,4 +2574,3 @@ section,
   transform: scale(1.05);
   filter: brightness(0.95);
 }
-
